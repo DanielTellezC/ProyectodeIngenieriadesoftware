@@ -1,0 +1,54 @@
+<%- include('partials/_header')%>
+
+   <div class="container">
+      <div class="row">
+        <!--Formulario-->
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-doby">
+                    <form action="/add" method="POST">
+                        <div class="form-group mb-3">
+                            <input type="text" name="title" placeholder="Inserta un titulo" class="form-control">
+                        </div> 
+                        <div class="form-group mb-3">                            
+                            <textarea type="text" name="description" placeholder="Inserta una descripcion" class="form-control" cols="50" ></textarea>
+                        </div>  
+                        <div class="form-group mb-3 d-grid gap-2 col-6 mx-auto">
+                            <button type="submit" class="btn btn-outline-success">Guardar</button>
+                        </div>                                           
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--Tabla-->
+        <div class="col-md-7">
+            <table class="table table-bordered border-primary ">
+               <thead>
+                   <tr>
+                       <th>N°</th>
+                       <th>Titulo</th>
+                       <th>Descripcion</th>
+                       <th>Accion</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <% for(var i=0; i < tasks.length; i++) {%>
+                    <tr>
+                        <td><%= i+1%></td>
+                        <td><%= tasks[i].title %></td>
+                        <td><%= tasks[i].description %></td>
+                        <td>
+                            <a href="/turn/<%= tasks[i]._id%>"
+                                 class="btn <%= tasks[i].status ? 'btn-success btn-sm':'btn-warning btn-sm'%> ">Hecho</a>
+                            <a href="/delete/<%= tasks[i]._id %>" class="btn btn-danger btn-sm">Eliminar</a>
+                            <a href="/edit/<%= tasks[i]._id%>" class="btn btn-info btn-sm">Editar</a>
+                        </td>
+                    </tr>                   
+                    <%}%>
+               </tbody>
+            </table>
+        </div>
+      </div>
+   </div>
+
+<%- include('partials/_footer')%>
