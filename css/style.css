@@ -26,22 +26,39 @@ header{
 }
 
 .cuadro_de_registro{
-  background-color: #F5FFB7;
+  background-color: white;
   text-align: center;
   color: black;
-  width: 50%;
+  width: 40%;
   height: 80%;
-  margin-left: 25%;
-  margin-right: 25%;
+  margin-left: 30%;
+  margin-right: 30%;
   margin-top: 5%;
   margin-bottom: 5%;
-  border-radius: 20%;
+  border-radius: 5%;
   position: absolute;
 }
 .listaRegistro{
   padding-top: 5%;
   list-style: none;
 }
-li{
-  padding-bottom: 10%;
+.listaRegistro li{
+  padding: 5%;
+}
+
+.iniciarsesion{
+  font-size: 200%;
+  font-style: bold;
+  font-family: cursive;
+}
+
+.contrasena{
+  box-sizing: border-box;
+  width: 70%;
+  padding: 2%;
+}
+.Correo_electronico{
+  box-sizing: border-box;
+  width: 70%;
+  padding: 2%;
 }
