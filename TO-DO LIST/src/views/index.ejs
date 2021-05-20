@@ -10,7 +10,7 @@
     Nueva Nota
   </button>
   
-  <!-- Modal -->
+  <!-- ventana Modal para la realizacion de la Nota-->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -22,13 +22,22 @@
         <div class="modal-body">
           
                 <form action="/add" method="POST">
-                     <div class="form-group mb-3">
+                    <div class="form-group mb-3">
                         <input type="text" name="title" placeholder="Titulo de la nota" class="form-control">
                       </div> 
                     <div class="form-group mb-3">                            
-                       <textarea type="text" name="description" placeholder="Nota..." class="form-control" cols="50" ></textarea>
-        
+                       <textarea type="text" name="description" placeholder="Nota..." class="form-control" cols="500"></textarea>
                    </div>  
+                   <div class="form-group mb-3">
+                        <p>Importancia de la tarea</p>
+                        <input type="radio" name="color" value="Baja">Baja
+                        <br>
+                        <input type="radio" name="color" value="Media" checked>Media
+                        <br>
+                        <input type="radio" name="color" value="Alta">Alta
+                    </div>
+
+
                   <div class="form-group mb-3 d-grid gap-2 col-6 mx-auto">
                       <button type="submit" class="btn btn-outline-success">Guardar</button>
                  </div>                                           
@@ -40,60 +49,48 @@
     </div>
   </div>
        
-
-
-  <!-- Vertically centered modal -->
-<div class="modal-dialog modal-dialog-centered">
-    ...
-  </div>
-  
-  <!-- Vertically centered scrollable modal -->
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    ...
-  </div>
- 
-
-  <!-- Modal Structure -->
-
-
-
-
-  
-    
-
-  
-          
-          
-           
-
-
        
-        <!--Tabla-->
+        <!-- Visualizacion de las notas -->
         <div class="col-md-7">
             <table class="table table-bordered border-primary ">
                <tbody>
                    <% for(var i=0; i < tasks.length; i++) {%>
                    <p><%= i+1%></p> 
-                        
-                    <div class="row">
-                         <div class="col s12 m6">
-                             <div class="card blue-grey darken-1">
-                             <div class="card-content white-text">
-                                  <span class="card-title"><%= tasks[i].title %></span>
-                                <p><%= tasks[i].description %></p>
-                                 </div>
-                                <div class="card-action">
-                                    <a href="/turn/<%= tasks[i]._id%>"
-                                        class="btn <%= tasks[i].status ? 'btn-success btn-sm':'btn-warning btn-sm'%> ">Hecho</a>
-                                   <a href="/delete/<%= tasks[i]._id %>" class="btn btn-danger btn-sm">Eliminar</a>
-                                   <a href="/edit/<%= tasks[i]._id%>" class="btn btn-info btn-sm">Editar</a>
-                                    </div>
-                                 
-                               </div>
-                               
+                    
+                   
+                   <% if(tasks[i].color == "Baja"){%>
+                    <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                        <div class="card-header"><%= tasks[i].color %></div>
+                        <div class="card-body">
+                          <h5 class="card-title"><%= tasks[i].title %></h5>
+                          <p class="card-text"><%= tasks[i].description %></p>
                         </div>
-                
+                      </div>
+                    <%}else if(tasks[i].color == "Media"){%>
+                        <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+                            <div class="card-header"><%= tasks[i].color %></div>
+                            <div class="card-body">
+                              <h5 class="card-title"><%= tasks[i].title %></h5>
+                              <p class="card-text"><%= tasks[i].description %></p>
+                            </div>
+                        </div>
+                    <%}else if(tasks[i].color == "Alta"){%>
+                        <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                            <div class="card-header"><%= tasks[i].color %></div>
+                            <div class="card-body">
+                              <h5 class="card-title"><%= tasks[i].title %></h5>
+                              <p class="card-text"><%= tasks[i].description %></p>
+                            </div>
+                        </div>
+                    <%}%>
+                    
+                   <div class="card-action">
+                       <a href="/turn/<%= tasks[i]._id%>"
+                           class="btn <%= tasks[i].status ? 'btn-success btn-sm':'btn-warning btn-sm'%> ">Hecho</a>
+                      <a href="/delete/<%= tasks[i]._id %>" class="btn btn-danger btn-sm">Eliminar</a>
+                      <a href="/edit/<%= tasks[i]._id%>" class="btn btn-info btn-sm">Editar</a>
                     </div>
+        </div>
                        
                      
                     <%}%>
