@@ -51,45 +51,58 @@
        
        
         <!-- Visualizacion de las notas -->
-        <div class="col-md-7">
+        <div class="row row-cols-lg-auto g-3 align-items-center">
             <table class="table table-bordered border-primary ">
                <tbody>
                    <% for(var i=0; i < tasks.length; i++) {%>
-                   <p><%= i+1%></p> 
+                   <p><%= %></p> 
                     
                    
                    <% if(tasks[i].color == "Baja"){%>
-                    <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-                        <div class="card-header"><%= tasks[i].color %></div>
+                    <div class="card text-dark mb-3" style="max-width: 18rem;">
+                        <div class="card-header text-white bg-success"><%= tasks[i].color %></div>
                         <div class="card-body">
                           <h5 class="card-title"><%= tasks[i].title %></h5>
                           <p class="card-text"><%= tasks[i].description %></p>
+                          <div class="card-action">
+                            <a href="/turn/<%= tasks[i]._id%>"
+                                class="btn <%= tasks[i].status ? 'btn btn-primary btn-sm':'btn btn-outline-primary btn-sm'%> ">Hecho</a>
+                           <a href="/delete/<%= tasks[i]._id %>" class="btn btn-secondary btn-sm">Eliminar</a>
+                           <a href="/edit/<%= tasks[i]._id%>" class="btn btn-secondary btn-sm">Editar</a>
+                         </div>
                         </div>
                       </div>
                     <%}else if(tasks[i].color == "Media"){%>
-                        <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                            <div class="card-header"><%= tasks[i].color %></div>
+                        <div class="card text-dark  mb-3" style="max-width: 18rem;">
+                            <div class="card-header text-dark bg-warning"><%= tasks[i].color %></div>
                             <div class="card-body">
                               <h5 class="card-title"><%= tasks[i].title %></h5>
                               <p class="card-text"><%= tasks[i].description %></p>
+                              <div class="card-action">
+                                <a href="/turn/<%= tasks[i]._id%>"
+                                    class="btn <%= tasks[i].status ? 'btn-primary btn-sm':'btn-outline-primary btn-sm'%> ">Hecho</a>
+                               <a href="/delete/<%= tasks[i]._id %>" class="btn btn-secondary btn-sm">Eliminar</a>
+                               <a href="/edit/<%= tasks[i]._id%>" class="btn btn-secondary btn-sm">Editar</a>
+                             </div>
                             </div>
                         </div>
                     <%}else if(tasks[i].color == "Alta"){%>
-                        <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
-                            <div class="card-header"><%= tasks[i].color %></div>
+                        <div class="card text-dark  mb-3" style="max-width: 18rem;">
+                            <div class="card-header text-white bg-danger"><%= tasks[i].color %></div>
                             <div class="card-body">
                               <h5 class="card-title"><%= tasks[i].title %></h5>
                               <p class="card-text"><%= tasks[i].description %></p>
+                              <div class="card-action">
+                                <a href="/turn/<%= tasks[i]._id%>"
+                                    class="btn <%= tasks[i].status ? 'btn-primary btn-sm':'btn-outline-primary btn-sm'%> ">Hecho</a>
+                               <a href="/delete/<%= tasks[i]._id %>" class="btn btn-secondary btn-sm">Eliminar</a>
+                               <a href="/edit/<%= tasks[i]._id%>" class="btn btn-secondary btn-sm">Editar</a>
+                             </div>
                             </div>
                         </div>
                     <%}%>
                     
-                   <div class="card-action">
-                       <a href="/turn/<%= tasks[i]._id%>"
-                           class="btn <%= tasks[i].status ? 'btn-success btn-sm':'btn-warning btn-sm'%> ">Hecho</a>
-                      <a href="/delete/<%= tasks[i]._id %>" class="btn btn-danger btn-sm">Eliminar</a>
-                      <a href="/edit/<%= tasks[i]._id%>" class="btn btn-info btn-sm">Editar</a>
-                    </div>
+                   
         </div>
                        
                      
