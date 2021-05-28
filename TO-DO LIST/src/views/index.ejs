@@ -6,16 +6,16 @@
   <!---------------------------------->
   <!-- Button trigger modal -->
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Nueva Nota
-  </button>
+<a class="fs-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <i class="lni lni-circle-plus"></i>
+</a>
   
   <!-- ventana Modal para la realizacion de la Nota-->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Nota</h5>
+        <div class="modal-header bg-dark">
+          <h5 class="modal-title text-white" id="exampleModalLabel">Nota</h5>
           
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
@@ -30,7 +30,7 @@
                    </div>  
                    <div class="form-group mb-3">
                         <p>Importancia de la tarea</p>
-                        <input type="radio" name="color" value="Baja">Baja
+                        <input class="bg-success" type="radio" name="color" value="Baja">Baja
                         <br>
                         <input type="radio" name="color" value="Media" checked>Media
                         <br>
@@ -59,47 +59,83 @@
                     
                    
                    <% if(tasks[i].color == "Baja"){%>
-                    <div class="card text-dark mb-3" style="max-width: 18rem;">
-                        <div class="card-header text-white bg-success"><%= tasks[i].color %></div>
-                        <div class="card-body">
-                          <h5 class="card-title"><%= tasks[i].title %></h5>
+                    <div class="card text-dark p-0" data-mdb-toggle="animation" data-mdb-animation-reset="true" data-mdb-animation="slide-out-right" style="max-width: 25rem; min-width: 15rem;">
+                        <div class="card-header text-dark">
+                            <h5 class="card-title float-start p-1"><%= tasks[i].title %></h5>
+                            <div class="card-title float-end fs-5 p-1">
+
+                                <%if(tasks[i].status == false){%>
+                                    <a href="/turn/<%= tasks[i]._id%>" class="text-dark"><i class="lni lni-sad"></i></a>
+                                <%}else if(tasks[i].status == true){%> 
+                                    <a href="/turn/<%= tasks[i]._id%>" class="text-dark"><i class="lni lni-happy"></i></a>
+                                <%}%>
+                                
+    
+                                <a href="/delete/<%= tasks[i]._id %>" class="text-dark"><i class="lni lni-trash-can"></i></a>
+                                
+                                <a href="/edit/<%= tasks[i]._id%>" class="text-dark"><i class="lni lni-pencil"></i></a>
+                                <i class="lni lni-stop bg-success text-dark"></i>
+
+                            </div>
+                            
+                        </div>
+                        <div class="card-body bg-light">
+                          
                           <p class="card-text"><%= tasks[i].description %></p>
-                          <div class="card-action">
-                            <a href="/turn/<%= tasks[i]._id%>"
-                                class="btn <%= tasks[i].status ? 'btn btn-primary btn-sm':'btn btn-outline-primary btn-sm'%> ">Hecho</a>
-                           <a href="/delete/<%= tasks[i]._id %>" class="btn btn-secondary btn-sm">Eliminar</a>
-                           <a href="/edit/<%= tasks[i]._id%>" class="btn btn-secondary btn-sm">Editar</a>
-                         </div>
                         </div>
                       </div>
                     <%}else if(tasks[i].color == "Media"){%>
-                        <div class="card text-dark  mb-3" style="max-width: 18rem;">
-                            <div class="card-header text-dark bg-warning"><%= tasks[i].color %></div>
-                            <div class="card-body">
-                              <h5 class="card-title"><%= tasks[i].title %></h5>
-                              <p class="card-text"><%= tasks[i].description %></p>
-                              <div class="card-action">
-                                <a href="/turn/<%= tasks[i]._id%>"
-                                    class="btn <%= tasks[i].status ? 'btn-primary btn-sm':'btn-outline-primary btn-sm'%> ">Hecho</a>
-                               <a href="/delete/<%= tasks[i]._id %>" class="btn btn-secondary btn-sm">Eliminar</a>
-                               <a href="/edit/<%= tasks[i]._id%>" class="btn btn-secondary btn-sm">Editar</a>
-                             </div>
+                        <div class="card text-dark p-0" data-mdb-toggle="animation" data-mdb-animation-reset="true" data-mdb-animation="slide-out-right" style="max-width: 25rem; min-width: 15rem;">
+                            <div class="card-header text-dark">
+                                <h5 class="card-title float-start p-1"><%= tasks[i].title %>   </h5>
+                                <div class="card-title float-end fs-5 p-1">
+    
+                                    <%if(tasks[i].status == false){%>
+                                        <a href="/turn/<%= tasks[i]._id%>" class="text-dark"><i class="lni lni-sad"></i></a>
+                                    <%}else if(tasks[i].status == true){%> 
+                                        <a href="/turn/<%= tasks[i]._id%>" class="text-dark"><i class="lni lni-happy"></i></a>
+                                    <%}%>
+                                    
+        
+                                    <a href="/delete/<%= tasks[i]._id %>" class="text-dark"><i class="lni lni-trash-can"></i></a>
+                                    
+                                    <a href="/edit/<%= tasks[i]._id%>" class="text-dark"><i class="lni lni-pencil"></i></a>
+                                    <i class="lni lni-stop bg-warning text-dark"></i>
+    
+                                </div>
+                                
                             </div>
-                        </div>
+                            <div class="card-body bg-light">
+                              
+                              <p class="card-text"><%= tasks[i].description %></p>
+                            </div>
+                          </div>
                     <%}else if(tasks[i].color == "Alta"){%>
-                        <div class="card text-dark  mb-3" style="max-width: 18rem;">
-                            <div class="card-header text-white bg-danger"><%= tasks[i].color %></div>
-                            <div class="card-body">
-                              <h5 class="card-title"><%= tasks[i].title %></h5>
-                              <p class="card-text"><%= tasks[i].description %></p>
-                              <div class="card-action">
-                                <a href="/turn/<%= tasks[i]._id%>"
-                                    class="btn <%= tasks[i].status ? 'btn-primary btn-sm':'btn-outline-primary btn-sm'%> ">Hecho</a>
-                               <a href="/delete/<%= tasks[i]._id %>" class="btn btn-secondary btn-sm">Eliminar</a>
-                               <a href="/edit/<%= tasks[i]._id%>" class="btn btn-secondary btn-sm">Editar</a>
-                             </div>
+                        <div class="card text-dark p-0" data-mdb-toggle="animation" data-mdb-animation-reset="true" data-mdb-animation="slide-out-right" style="max-width: 25rem; min-width: 15rem;">
+                            <div class="card-header text-dark">
+                                <h5 class="card-title float-start p-1"><%= tasks[i].title %>   </h5>
+                                <div class="card-title float-end fs-5 p-1">
+    
+                                    <%if(tasks[i].status == false){%>
+                                        <a href="/turn/<%= tasks[i]._id%>" class="text-dark"><i class="lni lni-sad"></i></a>
+                                    <%}else if(tasks[i].status == true){%> 
+                                        <a href="/turn/<%= tasks[i]._id%>" class="text-dark"><i class="lni lni-happy"></i></a>
+                                    <%}%>
+                                    
+        
+                                    <a href="/delete/<%= tasks[i]._id %>" class="text-dark"><i class="lni lni-trash-can"></i></a>
+                                    
+                                    <a href="/edit/<%= tasks[i]._id%>" class="text-dark"><i class="lni lni-pencil"></i></a>
+                                    <i class="lni lni-stop bg-danger text-dark"></i>
+    
+                                </div>
+                                
                             </div>
-                        </div>
+                            <div class="card-body bg-light">
+                              
+                              <p class="card-text"><%= tasks[i].description %></p>
+                            </div>
+                          </div>
                     <%}%>
                     
                    
@@ -107,6 +143,8 @@
                        
                      
                     <%}%>
+
+                    
                </tbody>
             </table>
         </div>
