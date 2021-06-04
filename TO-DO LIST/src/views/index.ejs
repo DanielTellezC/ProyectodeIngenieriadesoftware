@@ -119,6 +119,11 @@
                               
                               <p class="card-text"><%= tasks[i].description %></p>
                             </div>
+
+                            <div class="card-footer">
+                              <p class="card-text"><small class="text-muted"><%= tasks[i].fechadeinicio %></small></p>
+                      
+                            </div>
                           </div>
                     <%}else if(tasks[i].color == "Alta" && tasks[i].status == false){%>
                         <div class="card text-dark p-0" data-mdb-toggle="animation" data-mdb-animation-reset="true" data-mdb-animation="slide-out-right" style="max-width: 15rem; min-width: 15rem;">
@@ -144,6 +149,11 @@
                             <div class="card-body bg-light">
                               
                               <p class="card-text"><%= tasks[i].description %></p>
+                            </div>
+
+                            <div class="card-footer">
+                              <p class="card-text"><small class="text-muted"><%= tasks[i].fechadeinicio %></small></p>
+                      
                             </div>
                           </div>
                     <%}%>
@@ -197,6 +207,11 @@
                                     
                                     <p class="card-text"><%= tasks[i].description %></p>
                                   </div>
+
+                                  <div class="card-footer">
+                                    <p class="card-text"><small class="text-muted"><%= tasks[i].fechadeinicio %></small></p>
+                            
+                                  </div>
                                 </div>
                               <%}else if(tasks[i].color == "Media"  && tasks[i].status==true){%>
                                   <div class="card text-dark p-0" data-mdb-toggle="animation" data-mdb-animation-reset="true" data-mdb-animation="slide-out-right" style="max-width: 15rem; min-width: 15rem;">
@@ -223,6 +238,11 @@
                                         
                                         <p class="card-text"><%= tasks[i].description %></p>
                                       </div>
+
+                                      <div class="card-footer">
+                                        <p class="card-text"><small class="text-muted"><%= tasks[i].fechadeinicio %></small></p>
+                                
+                                      </div>
                                     </div>
                               <%}else if(tasks[i].color == "Alta"  && tasks[i].status==true){%>
                                   <div class="card text-dark p-0" data-mdb-toggle="animation" data-mdb-animation-reset="true" data-mdb-animation="slide-out-right" style="max-width: 15rem; min-width: 15rem;">
@@ -248,6 +268,11 @@
                                       <div class="card-body bg-light">
                                         
                                         <p class="card-text"><%= tasks[i].description %></p>
+                                      </div>
+
+                                      <div class="card-footer">
+                                        <p class="card-text"><small class="text-muted"><%= tasks[i].fechadeinicio %></small></p>
+                                
                                       </div>
                                     </div>
                               <%}%>
