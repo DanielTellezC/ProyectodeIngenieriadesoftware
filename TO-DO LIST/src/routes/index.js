@@ -3,7 +3,7 @@ const router = express.Router();
 
 const Task = require('../models/task');
 
-router.get('/',async(req,res)=>{
+router.get('/Notas',async(req,res)=>{
     const tasks = await Task.find();
     //console.log(tasks);
     //res.send('Mensaje de prueba desde nodeJS'); -> mandamos un mensaje de prueba
@@ -18,6 +18,7 @@ router.post('/add',async(req,res)=>{
     //res.send('Datos recibidos desde add POST');
     res.redirect('/');
 });
+
 
 router.get('/turn/:id', async(req, res)=>{
     const {id} = req.params;
@@ -34,6 +35,7 @@ router.post('/edit/:id', async(req,res)=>{
     await Task.update({_id:id},req.body);
     res.redirect('/');
 });
+
 
 router.get('/delete/:id', async(req, res)=>{
     const {id} = req.params;

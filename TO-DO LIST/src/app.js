@@ -13,6 +13,8 @@ mongoose.connect('mongodb://localhost/ejercicio')
 
 //Importar rutas
 const indexRoutes = require('./routes/index');
+app.use(express.static(path.join(__dirname, 'vistas')));
+app.use(require('./routes/login'));
 
 //Configuraciones
 app.set('port',process.env.PORT||3000);
