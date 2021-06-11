@@ -3,9 +3,9 @@ const router = express.Router();
 
 const Task = require('../models/task');
 
-router.get('/Notas',async(req,res)=>{
+router.get('/',async(req,res)=>{
     const tasks = await Task.find();
-    //console.log(tasks);
+    console.log(tasks);
     //res.send('Mensaje de prueba desde nodeJS'); -> mandamos un mensaje de prueba
     res.render('index',{tasks});
 });
@@ -13,8 +13,9 @@ router.get('/Notas',async(req,res)=>{
 router.post('/add',async(req,res)=>{
     const task =new Task(req.body);
     await task.save();
+    
     //console.log(new Task(req.body));
-    //console.log(req.body);
+    console.log(task);
     //res.send('Datos recibidos desde add POST');
     res.redirect('/');
 });

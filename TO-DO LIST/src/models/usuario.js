@@ -1,13 +1,9 @@
 const mongoose =require('mongoose');
 const Schema = mongoose.Schema;
 
-const TaskSchema = new Schema({
-    nombre: String,
+const UsuarioSchema = new Schema({
     correo: String,
-    password: String,
-    password_confirm: String,
-    date: {type: Date, dafault: Date.now},
+    password: String
 });
 
-module.exports=mongoose.model('user',TaskSchema);
-
+module.exports=mongoose.model('entradas',UsuarioSchema);

@@ -6,7 +6,6 @@ const TaskSchema = new Schema({
     description: String,
     color: String,
     fechadeinicio: String,
-    date: {type: Date, dafault: Date.now},
     status: {
         type: Boolean,
         default: false}

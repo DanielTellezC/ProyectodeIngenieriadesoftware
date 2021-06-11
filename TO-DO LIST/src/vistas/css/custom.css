@@ -8365,9 +8365,11 @@ fieldset:disabled .btn {
 .text-light {
   color: #f8f9fa !important;
 }
-
+.text-azn{
+  color: #000000 !important;
+}
 .text-dark {
-  color: #212529 !important;
+  color: #2e3033 !important;
 }
 
 .text-white {

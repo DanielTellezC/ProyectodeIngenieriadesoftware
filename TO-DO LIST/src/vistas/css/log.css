@@ -236,7 +236,7 @@ html {
     bottom: -10px;
     width: 0;
     height: 2px;
-    background-color: #56baed;
+    background-color: #56bae9;
     content: "";
     transition: width 0.2s;
   }
@@ -273,4 +273,7 @@ html {
   }
   .forms-navegador{
       width: 60%;
+  }
+  .oscurecer{
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   }

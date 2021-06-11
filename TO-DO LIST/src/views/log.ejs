@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +25,7 @@
         
          <a href="/" class="navbar-brand fs-2" id="nombre">Lista de tareas</a>
          <ul class="nav justify-content-end">
-
+            <form action="/POST"> </form>
              <li class="nav-item">
                 <input type="text"  class="fadeIn second" name="login" placeholder="Nombre de usuario">
              </li>
@@ -34,15 +35,13 @@
             <li class="nav-item">
                 <input type="submit" class="fadeIn fourth" value="Iniciar sesión">
             </li>
-            <form action="/POST"></form>
-               
+            </form>       
         </ul>
          
      </nav>
-</div> 
      </header>
 
-<body>
+<body class="bg-ligh">
 
  <div class="container">
      <div class="row">   
@@ -54,26 +53,26 @@
               <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
               <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
-            <div class="carousel-inner">
+            <div class="carousel-inner ">
               <div class="carousel-item active">
                 <img src="https://d500.epimg.net/cincodias/imagenes/2020/02/27/lifestyle/1582814593_931183_1582814665_noticia_normal.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>First slide label</h5>
-                  <p>Some representative placeholder content for the first slide.</p>
+                <div class="carousel-caption d-none d-md-block text-azn fs-2">
+                  <h5>Con Notas</h5>
+                  <p>Organiza tus tareas y simplica tu vida</p>
                 </div>
               </div>
               <div class="carousel-item">
                 <img src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_900,h_506/https://carina.com.ve/wp-content/uploads/2019/01/tomenota1-1-900x506.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Second slide label</h5>
-                  <p>Some representative placeholder content for the second slide.</p>
+                <div class="carousel-caption d-none d-md-block  text-azn fs-2">
+                  <h5>Ordena tu vida</h5>
+                  <p>Nuestras notas te ayudan a tenerlo todo en orden.</p>
                 </div>
               </div>
               <div class="carousel-item">
-                <img src="https://www.esneca.com/wp-content/uploads/que-es-diseno-grafico.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Third slide label</h5>
-                  <p>Some representative placeholder content for the third slide.</p>
+                <img src="https://www.esneca.com/wp-content/uploads/que-es-diseno-grafico.jpg" class="d-block w-100 oscurecer" alt="...">
+                <div class="carousel-caption d-none d-md-block  text-azn fs-2">
+                  <h5>Aún más sencillo</h5>
+                  <p>Rápido y eficiente, registrate hoy.</p>
                 </div>
               </div>
             </div>
@@ -101,15 +100,24 @@
         </div>
     
         <!-- Login Form -->
-        <form>
-          <input type="text" id="login" class="fadeIn second input" name="login" placeholder="Nombre de usuario">
-          <input type="text" id="password" class="fadeIn third input" name="login" placeholder="Contraseña">
-          <input type="text" id="password" class="fadeIn third input" name="login" placeholder="Confirmar la contraseña">
-          <input type="submit" class="fadeIn fourth input" value="Log In">
+        <form action="/adduser" method="POST">
+            <div class="form-group mb-3">
+                <input type="text" name="correo" id="login" class="fadeIn second input form-control"  placeholder="Nombre de usuario">
+            </div>
+            <div class="form-group mb-3">
+                <input type="text" name="password" id="password" class="fadeIn third input form-control"  placeholder="Contraseña">
+            </div>
+            <div class="form-group mb-3">
+                <input type="text" name="password-confirm" id="password" class="fadeIn third input form-control"  placeholder="Confirmar la contraseña">
+            </div>
+            <div class="form-group mb-3">
+                <button type="submit" class="btn btn-primary">Registrarse</button>
+            </div>
         </form>
     
         <!-- Remind Passowrd -->
         <div id="formFooter">
+            <p> <small> Registrate ahora </small></p>
         </div>
     
       </div>
